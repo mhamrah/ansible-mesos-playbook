@@ -1,0 +1,6 @@
+---
+- name: Check install install location
+  file: path={{mesos_docker_executor_path}} state=directory
+
+- name: Download mesos-docker
+  get_url: url={{mesos_docker_raw_path}} dest={{mesos_docker_install_path}}
