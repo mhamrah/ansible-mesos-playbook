@@ -15,7 +15,12 @@ script
     ${IP:+--ip=$IP} \
     ${PORT:+--port=$PORT} \
     ${CLUSTER:+--cluster=$CLUSTER} \
+    ${WORK_DIR:+--work_dir=$WORK_DIR} \
+    ${QUORUM:+--quorum=$QUORUM} \
     ${WHITELIST:+--whitelist=$WHITELIST} \
     $OPTS \
     >> "$LOGS"/master.log 2>&1
 end script
+
+# /usr/local/sbin/mesos-master --zk=zk://mlh-m2.amer.gettywan.com:2181/mesos --ip=10.196.10.74 --cluster=mesos_cluster --log_dir=/var/log/mesos --work_dir=/var/mesos --quorum=1
+
