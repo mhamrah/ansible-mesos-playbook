@@ -1,0 +1,36 @@
+- name: Get uname
+  command: uname -r
+  register: os_uname
+
+# would rather have used ansible apt-key...
+- name: Add specific key
+  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys {{docker_repo_key}}
+
+- name: Add docker repo
+  command: sudo sh -c "echo deb {{docker_repo}} docker main > /etc/apt/sources.list.d/docker.list"
+
+- name: Install os packages
+  apt: pkg={{item}} state=present update_cache=yes
+  with_items: 
+    - linux-image-extra-{{os_uname.stdout}}
+    - lxc-docker
+
+- name: Docker default config file
+  template: src=docker-defaults.j2 dest=/etc/default/docker
+
+- name: Docker init file
+  template: src=docker-init.j2 dest=/etc/init/docker.conf
+  notify: Restart Docker
+
+# consider seperate role here
+- name: Change ufw forward policy to ACCEPT
+  command: sed -i 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' /etc/default/ufw
+  when: docker_listen_tcp == True
+
+- name: Reload ufw
+  command: ufw reload
+  when: docker_listen_tcp == True
+
+- name: Allow incomming tcp traffic on {{docker_listen_port}}
+  command: ufw allow {{docker_listen_port}}/tcp
+  when: docker_listen_tcp == True
