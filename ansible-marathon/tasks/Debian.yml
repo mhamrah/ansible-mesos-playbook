@@ -1,0 +1,11 @@
+---
+- name: Install os packages
+  apt: pkg={{item}} state=present update_cache=yes
+  with_items: 
+    - git
+    - maven
+
+# == Templates ==
+- name: Create Marathon default config file
+  template: src=marathon.j2 dest=/etc/init/marathon.conf
+    owner="root" group="root" mode=0664

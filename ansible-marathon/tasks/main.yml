@@ -1,0 +1,8 @@
+---
+- name: Check install location
+  file: path={{marathon_install_location}} state=directory
+
+- include: Debian.yml
+  when: ansible_os_family == "Debian"
+
+- include: deploy.yml

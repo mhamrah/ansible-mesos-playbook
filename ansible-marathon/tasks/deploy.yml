@@ -1,0 +1,35 @@
+---
+# == Compile ==
+- name: Delete {{marathon_source_dir}}
+  file: path={{marathon_source_dir}} state=absent
+
+- name: Clone repo
+  git: repo={{marathon_source_repo}}
+    dest={{marathon_source_dir}}
+    version={{marathon_version}}
+
+# perhaps these three could be flags such as
+# compile only, which would be useful
+# for running as an integration test
+# (reuse deployment scripts as a test itself)
+- name: Maven Clean
+  command: mvn clean chdir={{marathon_source_dir}}
+
+- name: Maven Compile
+  command: mvn compile chdir={{marathon_source_dir}}
+
+- name: Maven Package
+  command: mvn package chdir={{marathon_source_dir}}
+
+# == Install ==
+- name: Set permissions on {{marathon_target_jar_location}}
+  file: path={{marathon_target_jar_location}} 
+    state=file
+    force=yes
+    owner=root
+    group=root
+    mode=0655
+
+- name: Copy {{marathon_target_jar_location}} marathon to {{marathon_install_jar}}
+  command: cp {{marathon_target_jar_location}} {{marathon_install_jar}}
+  notify: restart marathon
