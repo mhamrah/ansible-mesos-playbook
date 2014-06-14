@@ -2,9 +2,9 @@
   sudo: True
   roles:
     - { role: ansible-docker, tags:['os-tools'] }
-    - { role: ansible-java, java_version: "7", tags:['runtimes']}
-    - { role: ansible-scala, scala_version: "2.10.4", tags:['runtimes'] }
-    - { role: ansible-sbt, sbt_version: "0.13.1", tags:['scala-tools'] }
+    - { role: ansible-java8, tags:['runtimes', 'java']}
+#    - { role: ansible-scala, scala_version: "2.10.4", tags:['runtimes'] }
+#    - { role: ansible-sbt, sbt_version: "0.13.1", tags:['scala-tools'] }
     - { role: ansible-mesos, mesos_version: "0.19.0", tags: ['mesos', 'platforms'] }
     - { role: ansible-marathon, marathon_version: "marathon-0.5.1", tags:['mesos-tools'] }
     - { role: ansible-mesos-docker, mesos_docker_branch: "master", tags:['mesos-tools'] }
