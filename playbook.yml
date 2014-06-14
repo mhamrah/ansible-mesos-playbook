@@ -1,4 +1,4 @@
-- hosts: [masters]
+- hosts: [mesos_masters]
   sudo: True
   roles:
     - { role: ansible-docker, tags:['os-tools'] }
