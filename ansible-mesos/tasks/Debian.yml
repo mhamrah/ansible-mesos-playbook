@@ -1,0 +1,22 @@
+---
+- name: Install os packages
+  apt: pkg={{item}} state=present update_cache=yes
+  with_items:
+    - wget
+    - curl
+    - g++
+    - gcc
+    - zookeeper-bin
+    - zookeeperd
+    - python-setuptools
+    - python-dev
+    - libcurl4-openssl-dev
+    - libsasl2-2
+    - libsasl2-dev
+    - libcurl3
+
+- name: Install Mesos Debian Package
+  shell: dpkg -i {{mesos_dest_file}}
+
+- name: Mesos default config file
+  template: src=mesos.j2 dest=/etc/default/mesos
