@@ -14,6 +14,7 @@
     - libsasl2-2
     - libsasl2-dev
     - libcurl3
+    - unzip
 
 - name: Install Mesos Debian Package
   shell: dpkg -i {{mesos_dest_file}}
