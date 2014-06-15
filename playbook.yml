@@ -13,7 +13,7 @@
   roles: 
     - { role: ansible-docker, tags:['os-tools'] }
     - { role: ansible-java8, tags:['runtimes', 'java']}
-    - { role: ansible-mesos, mesos_install_mode:"slave", mesos_version: "0.19.0", tags: ['mesos', 'platforms'] }
+    - { role: ansible-mesos, mesos_install_mode: "slave", mesos_version: "0.19.0", tags: ['mesos', 'platforms'] }
     - { role: ansible-mesos-docker, mesos_docker_branch: "master", tags:['mesos-tools'] }
 
 #- include: tests/integration-tests.yml tags=mesos

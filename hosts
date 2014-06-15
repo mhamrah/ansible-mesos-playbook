@@ -1,8 +1,8 @@
 [mesos_masters]
-mlhm1.amer.gettywan.com zoo_id=1
-mlhm2.amer.gettywan.com zoo_id=2
-mlhm3.amer.gettywan.com zoo_id=3
+10.196.10.89 zoo_id=1
+10.196.10.90 zoo_id=2
+10.196.10.91 zoo_id=3
 
 [mesos_slaves]
-mlhs1.amer.gettywan.com
-mlhs2.amer.gettywan.com
+10.196.10.92
+10.196.10.93
