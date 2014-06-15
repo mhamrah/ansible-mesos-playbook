@@ -7,3 +7,6 @@
 - name: Restart mesos-slave
   service: name=mesos-slave state=restarted enabled=yes sleep=5
   # when: mesos_install_mode == "slave"
+
+- name: restart zookeeper
+  service: name=zookeeper-server state=restarted
