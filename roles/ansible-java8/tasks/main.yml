@@ -1,14 +1,38 @@
-- name: add repo for java 8
-  apt_repository: repo='ppa:webupd8team/java' state=present
+#- name: add repo for java 8
+#apt_repository: repo='ppa:webupd8team/java' state=present
 
-- name: set licence selected
-  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+#- name: set licence selected
+#  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+#  sudo: yes
+
+#- name: set licence seen
+#  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections
+#  sudo: yes
+
+#- name: install java 8
+#  apt: name=oracle-java8-installer state=latest update-cache=yes force=yes
+#  sudo: yes
+
+- name: add webupd8team
+  shell: echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
   sudo: yes
 
-- name: set licence seen
-  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections
+- name: add webupd8team src
+  shell: echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+  sudo: yes  
+
+- name: add key server
+  shell: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
   sudo: yes
 
-- name: install java 8
-  apt: name=oracle-java8-installer state=latest update-cache=yes force=yes
+- name: update
+  shell: apt-get update
+  sudo: yes
+
+- name: auto accept oracle jdk license
+  shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+  sudo: yes
+
+- name: install java8
+  shell: apt-get install -y oracle-java8-installer ca-certificates
   sudo: yes
