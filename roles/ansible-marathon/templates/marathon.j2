@@ -11,11 +11,8 @@ respawn limit 10 5
 
 # Custom local
 script
-  exec java \
-    {{ marathon_runtime_memory_options }} \
-    -Djava.library.path={{ marathon_runtime_lib_path }} \
-    -cp {{ marathon_runtime_marathon_jar }} mesosphere.marathon.Main \
-    --zk_hosts {{ marathon_runtime_zookeeper_hosts }} \
-    --master {{ marathon_runtime_master }}
-
+  exec {{ marathon_install_location }}/bin/start \
+    --master zk://{{ groups.mesos_masters | join(':' + mesos_port + ',') }}:{{mesos_port}}/mesos \
+    --zk zk://{{ groups.mesos_masters | join(':' + mesos_port + ',')}}:{{mesos_port}}/marathon \
+   >> /var/log/marathon.log 2>&1 
 end script
