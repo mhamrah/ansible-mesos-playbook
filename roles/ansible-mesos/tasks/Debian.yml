@@ -20,3 +20,6 @@
 
 - name: Mesos default config file
   template: src=mesos.j2 dest=/etc/default/mesos
+
+- name: create work dir
+  file: path=/var/mesos/
