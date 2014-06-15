@@ -6,8 +6,6 @@
     - curl
     - g++
     - gcc
-    - zookeeper-bin
-    - zookeeperd
     - python-setuptools
     - python-dev
     - libcurl4-openssl-dev
@@ -16,6 +14,13 @@
     - libcurl3
     - unzip
 
+- name: Install master os packages
+  apt: pkg={{item}} state=present update_cache=yes
+  with_items:
+    - zookeeper-bin
+    - zookeeperd
+  when: mesos_install_mode == "master" or mesos_install_mode == "master-slave"
+
 - name: Install Mesos Debian Package
   shell: dpkg -i {{mesos_dest_file}}
 
@@ -23,4 +28,4 @@
   template: src=mesos.j2 dest=/etc/default/mesos
 
 - name: create work dir
-  file: path=/var/mesos/
+  file: path=/var/mesos state=directory
