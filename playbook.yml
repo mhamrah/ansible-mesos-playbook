@@ -5,7 +5,7 @@
     - { role: ansible-java8, tags:['runtimes', 'java']}
 #    - { role: ansible-scala, scala_version: "2.10.4", tags:['runtimes'] }
 #    - { role: ansible-sbt, sbt_version: "0.13.1", tags:['scala-tools'] }
-    - { role: ansible-mesos, mesos_version: "0.19.0", tags: ['mesos', 'platforms'] }
+    - { role: ansible-mesos, mesos_cluster_name: "mlh_mesos", mesos_options: "--log_dir=$LOGS --hostname={{ ansible_default_ipv4.address }}", mesos_version: "0.19.0", tags: ['mesos', 'platforms'] }
     - { role: ansible-marathon, tags:['mesos-tools'] }
     - { role: ansible-mesos-docker, mesos_docker_branch: "master", tags:['mesos-tools'] }
 - hosts: [mesos_slaves]
@@ -13,7 +13,7 @@
   roles: 
     - { role: ansible-docker, tags:['os-tools'] }
     - { role: ansible-java8, tags:['runtimes', 'java']}
-    - { role: ansible-mesos, mesos_install_mode: "slave", mesos_version: "0.19.0", tags: ['mesos', 'platforms'] }
+    - { role: ansible-mesos, mesos_install_mode: "slave", mesos_version: "0.19.0", mesos_options: "--log_dir=$LOGS --hostname={{ ansible_default_ipv4.address }}", tags: ['mesos', 'platforms'] }
     - { role: ansible-mesos-docker, mesos_docker_branch: "master", tags:['mesos-tools'] }
 
 #- include: tests/integration-tests.yml tags=mesos
