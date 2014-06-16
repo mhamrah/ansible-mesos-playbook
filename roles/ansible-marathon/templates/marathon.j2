@@ -12,6 +12,7 @@ respawn limit 10 5
 # Custom local
 script
   exec {{ marathon_install_location }}/bin/start \
+    --ha \
     --master zk://{{ groups.mesos_masters | join(':' + mesos_port + ',') }}:{{mesos_port}}/mesos \
     --zk zk://{{ groups.mesos_masters | join(':' + mesos_port + ',')}}:{{mesos_port}}/marathon \
    >> /var/log/marathon.log 2>&1 
