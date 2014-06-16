@@ -14,6 +14,7 @@
   with_items: 
     - linux-image-extra-{{os_uname.stdout}}
     - lxc-docker
+    - apparmor
 
 - name: Docker default config file
   template: src=docker-defaults.j2 dest=/etc/default/docker
