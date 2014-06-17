@@ -14,6 +14,6 @@ script
   exec {{ marathon_install_location }}/bin/start \
     --ha \
     --master zk://{{ groups.mesos_masters | join(':' + mesos_port + ',') }}:{{mesos_port}}/mesos \
-    --zk zk://{{ groups.mesos_masters | join(':' + mesos_port + ',')}}:{{mesos_port}}/marathon \
+    --hostname {{ ansible_default_ipv4.address }}
    >> /var/log/marathon.log 2>&1 
 end script
