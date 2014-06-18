@@ -1,0 +1,10 @@
+GIT
+  remote: https://github.com/Pheromone/ansible-haproxy
+  ref: master
+  sha: a2146ee4d14070d2c6f88e2b1cc942b5730690da
+  specs:
+    info.haproxy (0.0.0)
+
+DEPENDENCIES
+  info.haproxy (>= 0)
+

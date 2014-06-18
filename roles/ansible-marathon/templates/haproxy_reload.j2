@@ -1,0 +1,4 @@
+#! /bin/sh
+
+{{ marathon_install_location }}/bin/haproxy_dns_cfg localhost:8080 > /etc/haproxy/haproxy.cfg
+service haproxy reload
