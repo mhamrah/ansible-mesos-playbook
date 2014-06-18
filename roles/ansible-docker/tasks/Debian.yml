@@ -1,36 +1,26 @@
-- name: Get uname
-  command: uname -r
-  register: os_uname
-
-# would rather have used ansible apt-key...
-- name: Add specific key
-  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys {{docker_repo_key}}
-
-- name: Add docker repo
-  command: sudo sh -c "echo deb {{docker_repo}} docker main > /etc/apt/sources.list.d/docker.list"
-
-- name: Install os packages
+- name: Install the backported kernel
   apt: pkg={{item}} state=present update_cache=yes
-  with_items: 
-    - lxc-docker
+  with_items:
+    - linux-image-generic-lts-raring
+    - linux-headers-generic-lts-raring
     - apparmor
+  sudo: yes
 
-- name: Docker default config file
-  template: src=docker-defaults.j2 dest=/etc/default/docker
+#- name: reboot the servers
+#  command: shutdown -r now
+#  sudo: yes
+#  async: 0
+#  poll: 0
+#  ignore_errors: true
 
-- name: Docker init file
-  template: src=docker-init.j2 dest=/etc/init/docker.conf
-  notify: Restart Docker
+- name: wait for server
+  local_action: wait_for host={{ inventory_hostname }} port=22 state=started
+  sudo: false
 
-# consider seperate role here
-- name: Change ufw forward policy to ACCEPT
-  command: sed -i 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' /etc/default/ufw
-  when: docker_listen_tcp == True
+- name: get ubuntu install script 
+  get_url: url=https://get.docker.io/ubuntu/ dest=/tmp/install_ubuntu force=true mode=744
+  sudo: yes
 
-- name: Reload ufw
-  command: ufw reload
-  when: docker_listen_tcp == True
-
-- name: Allow incomming tcp traffic on {{docker_listen_port}}
-  command: ufw allow {{docker_listen_port}}/tcp
-  when: docker_listen_tcp == True
+- name: Install docker
+  command: sh /tmp/install_ubuntu
+  sudo: yes
