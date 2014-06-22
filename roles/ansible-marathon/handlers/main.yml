@@ -1,3 +1,0 @@
----
-- name: restart marathon
-  shell: start marathon || restart marathon

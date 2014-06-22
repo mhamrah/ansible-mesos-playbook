@@ -1,8 +1,0 @@
-# == Templates ==
-- name: Create Marathon default config file
-  template: src=marathon.j2 dest=/etc/init/marathon.conf
-    owner="root" group="root" mode=0664
-
-- name: Creat haproxy reload script
-  template: src=haproxy_reload.j2 dest={{ marathon_install_location }}/bin/haproxy_reload
-    owner="root" group="root" mode=0744
