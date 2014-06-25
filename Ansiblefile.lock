@@ -8,43 +8,37 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-docker
   ref: master
-  sha: ee326a7a9f4223b618c11424a0512215a15f2093
+  sha: 6508c21ccadfaa155071413ff889a32222b7755f
   specs:
     ansible-docker (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-java8
   ref: master
-  sha: 52efe44bead845e4d812a611b3130bd10509e7d6
+  sha: d32abb728541a551406039391c295560b742304c
   specs:
     ansible-java8 (0.0.0)
 
-GIT
-  remote: https://github.com/mhamrah/ansible-marathon
-  ref: master
-  sha: c128064bab52970963729b5061ecacfc24b5951b
+PATH
+  remote: ../ansible-deimos
+  specs:
+    ansible-deimos (0.0.0)
+
+PATH
+  remote: ../ansible-marathon
   specs:
     ansible-marathon (0.0.0)
 
-GIT
-  remote: https://github.com/mhamrah/ansible-mesos
-  ref: master
-  sha: dde6c101035a5c3f2941ec59e86fe68150b16ea1
+PATH
+  remote: ../ansible-mesos
   specs:
     ansible-mesos (0.0.0)
 
-GIT
-  remote: https://github.com/mhamrah/ansible-mesos-docker
-  ref: master
-  sha: 43e6d2d9b1953f50b09a76d66499ada691429600
-  specs:
-    ansible-mesos-docker (0.0.0)
-
 DEPENDENCIES
+  ansible-deimos (>= 0)
   ansible-docker (>= 0)
   ansible-java8 (>= 0)
   ansible-marathon (>= 0)
   ansible-mesos (>= 0)
-  ansible-mesos-docker (>= 0)
   info.haproxy (>= 0)
 

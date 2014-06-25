@@ -6,12 +6,14 @@ site "https://galaxy.ansible.com/api/v1"
 role "info.haproxy"
 
 role "ansible-java8",
+  #path: "../ansible-java8"
   github: "mhamrah/ansible-java8"
 role "ansible-docker",
+  #path: "../ansible-docker"
   github: "mhamrah/ansible-docker"
 role "ansible-marathon",
+  #path: "../ansible-marathon"
   github: "mhamrah/ansible-marathon"
 role "ansible-mesos",
+  #path: "../ansible-mesos"
   github: "mhamrah/ansible-mesos"
-role "ansible-mesos-docker",
-  github: "mhamrah/ansible-mesos-docker"

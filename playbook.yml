@@ -1,12 +1,17 @@
 - hosts: [mesos_masters]
   sudo: True
+  tasks: 
+    - name: Install vim
+      apt: pkg={{ item }} state=present
+      with_items:
+        - git
+        - vim
   roles:
     - { role: ansible-docker, tags:['os-tools'] }
     - { role: ansible-java8, tags:['runtimes', 'java']}
     - { role: info.haproxy }
     - { role: ansible-mesos, mesos_cluster_name: "mlh_mesos", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
     - { role: ansible-marathon, tags:['mesos-tools'] }
-    - { role: ansible-mesos-docker, mesos_docker_branch: "master", tags:['mesos-tools'] }
 
 - hosts: [mesos_slaves]
   sudo: True
@@ -14,4 +19,3 @@
     - { role: ansible-docker, tags:['os-tools'] }
     - { role: ansible-java8, tags:['runtimes', 'java']}
     - { role: ansible-mesos, mesos_install_mode: "slave", mesos_version: "0.19.0", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
-    - { role: ansible-mesos-docker, mesos_docker_branch: "master", tags:['mesos-tools'] }
