@@ -1,7 +1,7 @@
 ansible-mesos-playbook
 ======================
 
-An ansible playbook for launching a mesos cluster with docker (via [Deimos](https://github.com/mesosphere/deimos) and [Marathon](https://github.com/mesosphere/marathon) support. Run this on Ubuntu 14.04 LTS.
+An ansible playbook for launching a mesos cluster with docker (via [Deimos](https://github.com/mesosphere/deimos) and [Marathon](https://github.com/mesosphere/marathon) support. Run this on Ubuntu 14.04 LTS. [Read the blog post](http://blog.michaelhamrah.com/2014/06/setting-up-a-multi-node-mesos-cluster-running-docker-haproxy-and-marathon-with-ansible/) for a descriptive overview.
 
 ### Getting Started
 
