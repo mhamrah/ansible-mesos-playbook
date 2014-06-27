@@ -8,34 +8,32 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-docker
   ref: master
-  sha: 6508c21ccadfaa155071413ff889a32222b7755f
+  sha: a3700df319353a2df50767f2bd31d500f46eb366
   specs:
     ansible-docker (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-java8
   ref: master
-  sha: d32abb728541a551406039391c295560b742304c
+  sha: 1f7167867fe472a8ab8a4f4f8348cb4b8da07981
   specs:
     ansible-java8 (0.0.0)
 
-PATH
-  remote: ../ansible-deimos
-  specs:
-    ansible-deimos (0.0.0)
-
-PATH
-  remote: ../ansible-marathon
+GIT
+  remote: https://github.com/mhamrah/ansible-marathon
+  ref: master
+  sha: b170eaf54282c6cbd9c0f42c2dcadae93e56e3bb
   specs:
     ansible-marathon (0.0.0)
 
-PATH
-  remote: ../ansible-mesos
+GIT
+  remote: https://github.com/mhamrah/ansible-mesos
+  ref: master
+  sha: a57c4c9e78c90e92222fd9e22a29d5d8906e379d
   specs:
     ansible-mesos (0.0.0)
 
 DEPENDENCIES
-  ansible-deimos (>= 0)
   ansible-docker (>= 0)
   ansible-java8 (>= 0)
   ansible-marathon (>= 0)
