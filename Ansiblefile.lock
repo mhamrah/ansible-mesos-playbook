@@ -22,7 +22,7 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-marathon
   ref: master
-  sha: b170eaf54282c6cbd9c0f42c2dcadae93e56e3bb
+  sha: 1b237e6806a3fbbb8208d58eebd8d6185b4d41c4
   specs:
     ansible-marathon (0.0.0)
 
