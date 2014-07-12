@@ -8,7 +8,7 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-docker
   ref: master
-  sha: a3700df319353a2df50767f2bd31d500f46eb366
+  sha: d6ea62f084cb53aba56108ec818a0ed892086c0c
   specs:
     ansible-docker (0.0.0)
 
