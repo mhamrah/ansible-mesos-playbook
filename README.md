@@ -6,6 +6,7 @@ An ansible playbook for launching a mesos cluster with docker (via [Deimos](http
 ### Getting Started
 
 * Install [librarian-ansible](https://github.com/bcoe/librarian-ansible) via ```gem install librarian-ansible```
+* You should add ```roles_path=./librarian_roles``` to an ansible.cfg file, preferably in this project's root directory.
 * Run ```librarian-ansible install```
 * Spin up a bunch of Ubuntu 14.04 servers, say 5.
 * ```cp hosts.sample hosts``` and update the ```mesos_masters``` and ```mesos_slaves``` groups.
