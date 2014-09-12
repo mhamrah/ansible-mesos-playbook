@@ -1,5 +1,6 @@
 tmp
 librarian_roles
 ansible.cfg
-hosts
+hosts*
 *.bak
+
