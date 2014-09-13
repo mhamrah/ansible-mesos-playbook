@@ -7,15 +7,15 @@
         - git
         - vim
   roles:
-    - { role: ansible-docker, tags:['os-tools'] }
-    - { role: ansible-java8, tags:['runtimes', 'java']}
-    - { role: info.haproxy }
-    - { role: ansible-mesos, mesos_cluster_name: "mlh_mesos", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
-    - { role: ansible-marathon, tags:['mesos-tools'] }
+    - { role: './librarian_roles/ansible-docker', tags:['os-tools'] }
+    - { role: './librarian_roles/ansible-java8', tags:['runtimes', 'java']}
+    - { role: './librarian_roles/info.haproxy' }
+    - { role: './librarian_roles/ansible-mesos', mesos_cluster_name: "mlh_mesos", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
+    - { role: './librarian_roles/ansible-marathon', tags:['mesos-tools'] }
 
 - hosts: [mesos_slaves]
   sudo: True
   roles: 
-    - { role: ansible-docker, tags:['os-tools'] }
-    - { role: ansible-java8, tags:['runtimes', 'java']}
-    - { role: ansible-mesos, mesos_install_mode: "slave", mesos_version: "0.19.0", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
+    - { role: './librarian_roles/ansible-docker', tags:['os-tools'] }
+    - { role: './librarian_roles/ansible-java8', tags:['runtimes', 'java']}
+    - { role: './librarian_roles/ansible-mesos', mesos_install_mode: "slave", mesos_version: "0.19.0", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
