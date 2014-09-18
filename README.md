@@ -19,3 +19,7 @@ An ansible playbook for launching a mesos cluster with docker (via [Deimos](http
 * A cron job on each master is set up to query the marathon api and configure HAProxy.
 * HAProxy routes a frontend (listening on port 80) to backends based on marathon tasks.
 * You probably want to tweak the HAProxy configuration script (in /opt/marathon/bin) for your needs. With the current setup you can have a wildcard dns prefix route to a backend matching the marathon name: i.e. www.example.com would do a least-connection proxy to the www task.
+
+### Notes
+
+Currently this installs Mesos 0.20 with Marathon 0.7.0-RC3. Mesos 0.20 only supports host networking, so make sure your containers pick up and use the assigned Marathon ports. 

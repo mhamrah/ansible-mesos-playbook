@@ -6,16 +6,18 @@ GIT
     ansible-java8 (0.0.0)
 
 GIT
-  remote: https://github.com/mhamrah/ansible-mesos
+  remote: https://github.com/mhamrah/ansible-marathon
   ref: master
-  sha: 21db6d296a9d316aa4ad14d2fe9a8ac671155079
-  specs:
-    ansible-mesos (0.0.0)
-
-PATH
-  remote: ../ansible-marathon
+  sha: 69969752744fc57eaeb77f095600caff97ed54bb
   specs:
     ansible-marathon (0.0.0)
+
+GIT
+  remote: https://github.com/mhamrah/ansible-mesos
+  ref: master
+  sha: 61978322faf95dc6e778b5d33ced8dba9393fbe8
+  specs:
+    ansible-mesos (0.0.0)
 
 DEPENDENCIES
   ansible-java8 (>= 0)
