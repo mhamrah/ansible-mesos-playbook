@@ -1,7 +1,7 @@
 ansible-mesos-playbook
 ======================
 
-An ansible playbook for launching a mesos cluster with docker (via [Deimos](https://github.com/mesosphere/deimos) and [Marathon](https://github.com/mesosphere/marathon)). Run this on Ubuntu 14.04 LTS. [Read the blog post](http://blog.michaelhamrah.com/2014/06/setting-up-a-multi-node-mesos-cluster-running-docker-haproxy-and-marathon-with-ansible/) for a descriptive overview.
+An ansible playbook for launching a mesos cluster with native docker and mesos executors, along with [Marathon](https://github.com/mesosphere/marathon)) and HAProxy support. Run this on Ubuntu 14.04 LTS. [Read the blog post](http://blog.michaelhamrah.com/2014/06/setting-up-a-multi-node-mesos-cluster-running-docker-haproxy-and-marathon-with-ansible/) for a descriptive overview.
 
 ### Getting Started
 
@@ -23,3 +23,25 @@ An ansible playbook for launching a mesos cluster with docker (via [Deimos](http
 ### Notes
 
 Currently this installs Mesos 0.20 with Marathon 0.7.0-RC3. Mesos 0.20 only supports host networking, so make sure your containers pick up and use the assigned Marathon ports. 
+
+### Launching a Container
+
+POST to /v2/apps:
+
+```
+{
+    "id": "www", 
+    "container": {
+        "docker": {
+            "image": "mhamrah/mesos-sample"
+        },
+        "type": "DOCKER",
+        "volumes": []
+    },
+    "args": ["hello"],
+    "cpus": 1,
+    "mem": 512,
+    "instances": 1,
+  "ports": [0]
+}
+```
