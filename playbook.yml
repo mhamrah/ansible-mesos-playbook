@@ -1,21 +1,22 @@
 - hosts: [mesos_masters]
   sudo: True
-  tasks: 
-    - name: Install vim
+  pre_tasks: 
+    - name: Install Packages 
       apt: pkg={{ item }} state=present
       with_items:
         - git
         - vim
+        - htop
+        - haproxy
+    - name: Sets haproxy to enabled
+      lineinfile: dest=/etc/default/haproxy regexp="^ENABLED" line="ENABLED=1"
   roles:
-    - { role: './librarian_roles/ansible-docker', tags:['os-tools'] }
     - { role: './librarian_roles/ansible-java8', tags:['runtimes', 'java']}
-    - { role: './librarian_roles/info.haproxy' }
-    - { role: './librarian_roles/ansible-mesos', mesos_cluster_name: "mlh_mesos", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
+    - { role: './librarian_roles/ansible-mesos', mesos_install_mode: 'master', mesos_cluster_name: 'mlh_mesos', tags: ['mesos', 'platforms'] }
     - { role: './librarian_roles/ansible-marathon', tags:['mesos-tools'] }
 
 - hosts: [mesos_slaves]
   sudo: True
   roles: 
-    - { role: './librarian_roles/ansible-docker', tags:['os-tools'] }
     - { role: './librarian_roles/ansible-java8', tags:['runtimes', 'java']}
-    - { role: './librarian_roles/ansible-mesos', mesos_install_mode: "slave", mesos_version: "0.19.0", mesos_options: "--log_dir=$LOGS", tags: ['mesos', 'platforms'] }
+    - { role: './librarian_roles/ansible-mesos', mesos_install_mode: "slave", tags: ['mesos', 'platforms'] }

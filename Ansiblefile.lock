@@ -1,18 +1,4 @@
 GIT
-  remote: https://github.com/Pheromone/ansible-haproxy
-  ref: master
-  sha: a2146ee4d14070d2c6f88e2b1cc942b5730690da
-  specs:
-    info.haproxy (0.0.0)
-
-GIT
-  remote: https://github.com/mhamrah/ansible-docker
-  ref: master
-  sha: d6ea62f084cb53aba56108ec818a0ed892086c0c
-  specs:
-    ansible-docker (0.0.0)
-
-GIT
   remote: https://github.com/mhamrah/ansible-java8
   ref: master
   sha: 1f7167867fe472a8ab8a4f4f8348cb4b8da07981
@@ -20,23 +6,19 @@ GIT
     ansible-java8 (0.0.0)
 
 GIT
-  remote: https://github.com/mhamrah/ansible-marathon
-  ref: master
-  sha: 1b237e6806a3fbbb8208d58eebd8d6185b4d41c4
-  specs:
-    ansible-marathon (0.0.0)
-
-GIT
   remote: https://github.com/mhamrah/ansible-mesos
   ref: master
-  sha: a57c4c9e78c90e92222fd9e22a29d5d8906e379d
+  sha: 21db6d296a9d316aa4ad14d2fe9a8ac671155079
   specs:
     ansible-mesos (0.0.0)
 
+PATH
+  remote: ../ansible-marathon
+  specs:
+    ansible-marathon (0.0.0)
+
 DEPENDENCIES
-  ansible-docker (>= 0)
   ansible-java8 (>= 0)
   ansible-marathon (>= 0)
   ansible-mesos (>= 0)
-  info.haproxy (>= 0)
 
