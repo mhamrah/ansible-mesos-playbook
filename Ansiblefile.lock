@@ -8,14 +8,14 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-marathon
   ref: master
-  sha: 69969752744fc57eaeb77f095600caff97ed54bb
+  sha: bb95a618c197767f21eaefe2ade810f9cfc3868d
   specs:
     ansible-marathon (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-mesos
   ref: master
-  sha: 61978322faf95dc6e778b5d33ced8dba9393fbe8
+  sha: 54a3be9689fa57c9cb19eca79d15e86d547861f0
   specs:
     ansible-mesos (0.0.0)
 
