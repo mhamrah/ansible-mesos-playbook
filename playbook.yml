@@ -21,6 +21,8 @@
         - htop
         - haproxy
       when: ansible_os_family == "RedHat"
+    - name: Disable iptables
+      action: service name=iptables state=stopped enabled=false
 #    - name: Sets haproxy to enabled
 #      lineinfile: dest=/etc/default/haproxy regexp="^ENABLED" line="ENABLED=1"
 
