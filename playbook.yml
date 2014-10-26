@@ -23,17 +23,20 @@
       when: ansible_os_family == "RedHat"
     - name: Disable iptables
       action: service name=iptables state=stopped enabled=false
-#    - name: Sets haproxy to enabled
-#      lineinfile: dest=/etc/default/haproxy regexp="^ENABLED" line="ENABLED=1"
+      when: ansible_os_family == "RedHat"
+    - name: Sets haproxy to enabled
+      lineinfile: dest=/etc/default/haproxy regexp="^ENABLED" line="ENABLED=1"
+      when: ansible_os_family == "Debian"
 
   roles:
-    - { role: './librarian_roles/ansible-java8', tags:['runtimes', 'java'], when: ansible_os_family == 'Debian' }
-    - { role: './librarian_roles/ansible-zookeeper', zookeeper_hosts: "{{ groups.mesos_masters}}", tags:['zookeeper'] }
-    - { role: './librarian_roles/ansible-mesos', zookeeper_hostnames: "{{ groups.mesos_masters | join(':' + zookeeper_client_port + ',')  }}:{{ zookeeper_client_port  }}", mesos_install_mode: 'master', mesos_cluster_name: 'mlh_mesos', tags: ['mesos', 'platforms'] }
-    - { role: './librarian_roles/ansible-marathon', zookeeper_hostnames: "{{ groups.mesos_masters | join(':' + zookeeper_client_port + ',')  }}:{{ zookeeper_client_port  }}",  tags:['mesos-tools'] }
+    - { role: 'ansible-java8', tags:['runtimes', 'java'], when: ansible_os_family == 'Debian' }
+    - { role: 'ansible-zookeeper', zookeeper_hosts: "{{ groups.mesos_masters}}", tags:['zookeeper'] }
+    - { role: 'ansible-mesos', mesos_quorum: "2", zookeeper_hostnames: "{{ groups.mesos_masters | join(':' + zookeeper_client_port + ',')  }}:{{ zookeeper_client_port  }}", mesos_install_mode: 'master', mesos_cluster_name: 'mlh_mesos', tags: ['mesos', 'platforms'] }
+    - { role: 'ansible-marathon', zookeeper_hostnames: "{{ groups.mesos_masters | join(':' + zookeeper_client_port + ',')  }}:{{ zookeeper_client_port  }}",  tags:['mesos-tools'] }
 
 - hosts: [mesos_slaves]
   sudo: True
   roles: 
-    - { role: './librarian_roles/ansible-java8', tags:['runtimes', 'java'], when: ansible_os_family == 'Debian' }
-    - { role: './librarian_roles/ansible-mesos', zookeeper_hostnames: "{{ groups.mesos_masters | join(':' + zookeeper_client_port + ',')  }}:{{ zookeeper_client_port  }}",  mesos_install_mode: "slave", tags: ['mesos', 'platforms'] }
+    - { role: 'ansible-docker', tags:['runtimes', 'docker'] }
+    - { role: 'ansible-java8', tags:['runtimes', 'java'], when: ansible_os_family == 'Debian' }
+    - { role: 'ansible-mesos', mesos_containerizers: "docker,mesos", zookeeper_hostnames: "{{ groups.mesos_masters | join(':' + zookeeper_client_port + ',')  }}:{{ zookeeper_client_port  }}",  mesos_install_mode: "slave", tags: ['mesos', 'platforms'] }

@@ -1,14 +1,15 @@
 ansible-mesos-playbook
 ======================
 
-An ansible playbook for launching a mesos cluster with native docker and mesos executors, along with [Marathon](https://github.com/mesosphere/marathon)) and HAProxy support. Run this on Ubuntu 14.04 LTS. [Read the blog post](http://blog.michaelhamrah.com/2014/06/setting-up-a-multi-node-mesos-cluster-running-docker-haproxy-and-marathon-with-ansible/) for a descriptive overview.
+An ansible playbook for launching a mesos cluster with native docker and mesos executors, along with [Marathon](https://github.com/mesosphere/marathon)) and HAProxy support. Run this on Ubuntu 14.04 LTS (preferred) or Centos/RHEL 6. [Read the blog post](http://blog.michaelhamrah.com/2014/06/setting-up-a-multi-node-mesos-cluster-running-docker-haproxy-and-marathon-with-ansible/) for a descriptive overview.
 
 ### Getting Started
 
 * Install [librarian-ansible](https://github.com/bcoe/librarian-ansible) via ```gem install librarian-ansible```
 * Run ```librarian-ansible install```
-* Spin up a bunch of Ubuntu 14.04 servers, say 5.
+* Spin up a bunch of Ubuntu 14.04 servers, say 5, on your favorite cloud provider.
 * ```cp hosts.sample hosts``` and update the ```mesos_masters``` and ```mesos_slaves``` groups.
+* ```cp ansible.cfg.sample ansible.cfg``` to ensure librarian_roles is in the ansible path (```ansible.cfg``` is git-ignored).
 * Run ```ansible-playbook -i hosts playbook.yml```.
 
 ### The Setup

@@ -1,0 +1,4 @@
+[defaults]
+remote_user=root
+hostfile=hosts
+roles_path=librarian_roles
