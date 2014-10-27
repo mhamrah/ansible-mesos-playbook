@@ -15,7 +15,7 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-marathon
   ref: master
-  sha: 1a345d1f69cb217667640d4b822cfb9e7ab955ca
+  sha: 97561fc9b9afb4f95a3541e66d61145c0ec2d903
   specs:
     ansible-marathon (0.0.0)
 
