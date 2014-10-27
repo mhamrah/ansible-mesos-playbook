@@ -10,7 +10,7 @@ An ansible playbook for launching a mesos cluster with native docker and mesos e
 * Spin up a bunch of Ubuntu 14.04 servers, say 5, on your favorite cloud provider.
 * ```cp hosts.sample hosts``` and update the ```mesos_masters``` and ```mesos_slaves``` groups.
 * ```cp ansible.cfg.sample ansible.cfg``` to ensure librarian_roles is in the ansible path (```ansible.cfg``` is git-ignored).
-* Run ```ansible-playbook -i hosts playbook.yml```.
+* Run ```ansible-playbook playbook.yml```.
 
 ### The Setup
 
@@ -22,6 +22,8 @@ An ansible playbook for launching a mesos cluster with native docker and mesos e
 * You probably want to tweak the HAProxy configuration script (in /opt/marathon/bin) for your needs. With the current setup you can have a wildcard dns prefix route to a backend matching the marathon name: i.e. www.example.com would do a least-connection proxy to the www task.
 
 If you don't want to overload the mesos_masters group, simply remap the existing roles to new groups.
+
+If you have trouble, ```/var/log/syslog``` on Ubuntu and ```/var/log/messages``` on RHEL is your friend. For Zookeeper, try ```/var/log/zookeeper/zookeeper.log```.
 
 ### Notes
 
