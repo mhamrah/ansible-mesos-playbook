@@ -1,26 +1,42 @@
 GIT
+  remote: https://github.com/mhamrah/ansible-docker
+  ref: master
+  sha: 5f6cea50da4a3fb708a1fa06a7bb78c3753a2a4d
+  specs:
+    ansible-docker (0.0.0)
+
+GIT
   remote: https://github.com/mhamrah/ansible-java8
   ref: master
-  sha: 1f7167867fe472a8ab8a4f4f8348cb4b8da07981
+  sha: 00efa667c59eb66f1cfa71c091bf1c674ed6f6dd
   specs:
     ansible-java8 (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-marathon
   ref: master
-  sha: bb95a618c197767f21eaefe2ade810f9cfc3868d
+  sha: 1a345d1f69cb217667640d4b822cfb9e7ab955ca
   specs:
     ansible-marathon (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-mesos
   ref: master
-  sha: 54a3be9689fa57c9cb19eca79d15e86d547861f0
+  sha: f1fb0e20412c614acf8a281821ecfdb2da6aa12c
   specs:
     ansible-mesos (0.0.0)
 
+GIT
+  remote: https://github.com/mhamrah/ansible-zookeeper
+  ref: master
+  sha: 142a6fc388fc721da1ec741e52d86f2e870ded2a
+  specs:
+    ansible-zookeeper (0.0.0)
+
 DEPENDENCIES
+  ansible-docker (>= 0)
   ansible-java8 (>= 0)
   ansible-marathon (>= 0)
   ansible-mesos (>= 0)
+  ansible-zookeeper (>= 0)
 
