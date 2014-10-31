@@ -35,18 +35,19 @@ POST to /v2/apps:
 
 ```
 {
-    "id": "www", 
+    "id": "mlh", 
     "container": {
         "docker": {
-            "image": "mhamrah/mesos-sample"
+            "image": "mhamrah/mesos-sample",
+            "network": "BRIDGE",
+            "portMappings": [
+                { "containerPort": 8080, "hostPort": 0, "servicePort": 9000, "protocol": "tcp" }
+            ]
         },
-        "type": "DOCKER",
-        "volumes": []
+        "type": "DOCKER"
     },
-    "args": ["hello"],
-    "cpus": 1,
+    "cpus": 0.5,
     "mem": 512,
-    "instances": 1,
-    "ports": [0]
+    "instances": 1
 }
 ```
