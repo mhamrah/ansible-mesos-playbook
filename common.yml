@@ -27,7 +27,7 @@
       action: service name=iptables state=stopped enabled=false
       when: ansible_os_family == "RedHat"
     - name: Remove require tty
-      lineinfile: regexp="requiretty" dest=/etc/sudoers state=absent
+      lineinfile: regexp="^\s+\w+\s+requiretty" dest=/etc/sudoers state=absent
     - name: Remove require tty - alt
-      lineinfile: regexp="requiretty" dest=/etc/sudoers/os_defaults state=absent
+      lineinfile: regexp="requiretty" dest=/etc/sudoers.d/os_defaults state=absent
   
