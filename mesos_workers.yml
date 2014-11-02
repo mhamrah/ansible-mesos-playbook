@@ -1,0 +1,12 @@
+---  
+- hosts: [mesos_workers]
+  sudo: True
+  pre_tasks:
+    - name: Remove require tty
+      lineinfile: regexp="tty" dest=/etc/sudoers/os_defaults state=absent
+      tags: ['system']
+  roles: 
+    - { role: 'ansible-docker', tags:['docker'] }
+    - { role: 'ansible-java8', tags:['java'], when: ansible_os_family == 'Debian' }
+    - { role: 'ansible-mesos', mesos_containerizers: "docker,mesos", zookeeper_hostnames: "{{ groups.mesos_primaries | join(':' + zookeeper_client_port + ',')  }}:{{ zookeeper_client_port  }}",  mesos_install_mode: "slave", tags: ['mesos'] }
+    - { role: 'ansible-consul', consul_client_address: "0.0.0.0", consul_is_server: false, consul_datacenter: "sea", consul_servers: "{{ groups.mesos_primaries }}", consul_join_at_start: true, tags:['consul'] }

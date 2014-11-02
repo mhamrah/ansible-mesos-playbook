@@ -15,23 +15,30 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-marathon
   ref: master
-  sha: 97561fc9b9afb4f95a3541e66d61145c0ec2d903
+  sha: c8b9dde6ce543df6bb61f890a74c49cc688bc944
   specs:
     ansible-marathon (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-mesos
   ref: master
-  sha: f1fb0e20412c614acf8a281821ecfdb2da6aa12c
+  sha: d9b67e65e76914d7b53734690b86cd90118d767d
   specs:
     ansible-mesos (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-zookeeper
   ref: master
-  sha: 142a6fc388fc721da1ec741e52d86f2e870ded2a
+  sha: ba4340361486b58f13d7581e9a0ba87c11ec4b49
   specs:
     ansible-zookeeper (0.0.0)
+
+GIT
+  remote: https://github.com/tmtk75/ansible-consul
+  ref: master
+  sha: 8658962cbd788083ec8ea45715a7408f32bfb5d9
+  specs:
+    tmtk75.consul (0.0.0)
 
 DEPENDENCIES
   ansible-docker (>= 0)
@@ -39,4 +46,5 @@ DEPENDENCIES
   ansible-marathon (>= 0)
   ansible-mesos (>= 0)
   ansible-zookeeper (>= 0)
+  tmtk75.consul (>= 0)
 

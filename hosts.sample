@@ -1,5 +1,5 @@
 [mesos_masters]
-ec2-54-204-214-172.compute-1.amazonaws.com zoo_id=1
+ec2-54-204-214-172.compute-1.amazonaws.com zoo_id=1 consul_bootstrap=true
 ec2-54-235-59-210.compute-1.amazonaws.com zoo_id=2
 ec2-54-83-161-83.compute-1.amazonaws.com zoo_id=3
 
