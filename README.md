@@ -41,7 +41,7 @@ POST to /v2/apps:
             "image": "mhamrah/mesos-sample",
             "network": "BRIDGE",
             "portMappings": [
-                { "containerPort": 8080, "hostPort": 0, "servicePort": 9000, "protocol": "tcp" }
+                { "containerPort": 8080, "hostPort": 0, "protocol": "tcp" }
             ]
         },
         "type": "DOCKER"
