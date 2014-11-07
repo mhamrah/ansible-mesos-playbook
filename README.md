@@ -5,6 +5,7 @@ An ansible playbook for launching a mesos cluster with native docker and mesos e
 
 ### Getting Started
 
+* Install [ansible](http://docs.ansible.com/intro_installation.html#installing-the-control-machine), version >= 1.7.
 * Install [librarian-ansible](https://github.com/bcoe/librarian-ansible) via ```gem install librarian-ansible```
 * Run ```librarian-ansible install```
 * Spin up a bunch of Ubuntu 14.04 servers, say 5, on your favorite cloud provider.
