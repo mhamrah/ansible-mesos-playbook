@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/mhamrah/ansible-consul
+  ref: master
+  sha: 87307d09f9b08184c045957aa3d2486fb609d1e3
+  specs:
+    ansible-consul (0.0.0)
+
+GIT
   remote: https://github.com/mhamrah/ansible-docker
   ref: master
   sha: 5f6cea50da4a3fb708a1fa06a7bb78c3753a2a4d
@@ -33,18 +40,11 @@ GIT
   specs:
     ansible-zookeeper (0.0.0)
 
-GIT
-  remote: https://github.com/tmtk75/ansible-consul
-  ref: master
-  sha: 8658962cbd788083ec8ea45715a7408f32bfb5d9
-  specs:
-    tmtk75.consul (0.0.0)
-
 DEPENDENCIES
+  ansible-consul (>= 0)
   ansible-docker (>= 0)
   ansible-java8 (>= 0)
   ansible-marathon (>= 0)
   ansible-mesos (>= 0)
   ansible-zookeeper (>= 0)
-  tmtk75.consul (>= 0)
 
