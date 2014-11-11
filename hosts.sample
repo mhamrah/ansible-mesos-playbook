@@ -1,8 +1,8 @@
-[mesos_masters]
+[mesos_primaries]
 ec2-54-204-214-172.compute-1.amazonaws.com zoo_id=1 consul_bootstrap=true
 ec2-54-235-59-210.compute-1.amazonaws.com zoo_id=2
 ec2-54-83-161-83.compute-1.amazonaws.com zoo_id=3
 
-[mesos_slaves]
+[mesos_workers]
 ec2-54-91-78-105.compute-1.amazonaws.com
 ec2-54-82-227-223.compute-1.amazonaws.com 
