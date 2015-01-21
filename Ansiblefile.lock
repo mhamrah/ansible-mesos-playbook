@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/mhamrah/ansible-consul
   ref: master
-  sha: 87307d09f9b08184c045957aa3d2486fb609d1e3
+  sha: 684b9cafbe6de5b7e8151f25d753bc2d36c7f56a
   specs:
     ansible-consul (0.0.0)
 
@@ -15,21 +15,21 @@ GIT
 GIT
   remote: https://github.com/mhamrah/ansible-java8
   ref: master
-  sha: 00efa667c59eb66f1cfa71c091bf1c674ed6f6dd
+  sha: ee480e95fcdf16550f49472044560ff7a664b95a
   specs:
     ansible-java8 (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-marathon
   ref: master
-  sha: c8b9dde6ce543df6bb61f890a74c49cc688bc944
+  sha: c68756d819dcb6e6da53c3196cd8ab557a3f00f1
   specs:
     ansible-marathon (0.0.0)
 
 GIT
   remote: https://github.com/mhamrah/ansible-mesos
   ref: master
-  sha: d9b67e65e76914d7b53734690b86cd90118d767d
+  sha: 1717eefbdda66f78d41b0aa2fc77facafb2a2b1c
   specs:
     ansible-mesos (0.0.0)
 
