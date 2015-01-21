@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/mhamrah/ansible-consul
   ref: master
-  sha: 684b9cafbe6de5b7e8151f25d753bc2d36c7f56a
+  sha: 38397d7103f659e9f3944da816d6b8a3b0e26018
   specs:
     ansible-consul (0.0.0)
 
