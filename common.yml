@@ -4,7 +4,7 @@
   tags: ['system']
   pre_tasks:
     - name: Install Debian Packages
-      apt: pkg={{ item }} state=present
+      apt: pkg={{ item }} state=present update_cache=yes
       with_items:
         - git
         - vim
